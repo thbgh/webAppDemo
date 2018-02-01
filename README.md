@@ -8,5 +8,5 @@
 4. 路由： [react-routr V4](https://mobile.ant.design/docs/react/introduce-cn)
 
 
-![image](https://raw.githubusercontent.com/thbgh/antdPro/master/public/img/main.png)
+![image](https://github.com/thbgh/RR4demo/blob/master/public/img/personal.png)
 
