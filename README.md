@@ -4,8 +4,8 @@
 ## 技术栈
 1. 脚手架：create-react-app
 2. 前端框架：[react V16](https://discountry.github.io/react/docs/hello-world.html)
-3. 组件库：[antd-mobile](https://ant.design/docs/react/introduce-cn
-4. 路由： [react-routr V4](https://mobile.ant.design/docs/react/introduce-cn)
+3. 组件库：[antd-mobile](https://ant.design/docs/react/introduce-cn)
+4. 路由： [react-router V4](https://mobile.ant.design/docs/react/introduce-cn)
 
 ### 展示图片
 ![image](https://github.com/thbgh/RR4demo/blob/master/public/img/home.png)
