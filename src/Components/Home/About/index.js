@@ -5,7 +5,7 @@
  * @Project: Mart
  * @Filename: index.js
  * @Last modified by:   THB
- * @Last modified time: 2018-02-01 14:15:36 PM Thursday
+ * @Last modified time: 2018-02-01 17:28:41 PM Thursday
  */
 
 import React, {Component} from 'react';
@@ -28,9 +28,8 @@ export default class About extends Component {
                 <h2>About</h2>
                 <li>
                     <Link to="/home/about/info">Info</Link>
-
-                    <p>InfoStore.userName:{InfoStore.userName}</p>
                 </li>
+                <p>InfoStore.userName:{InfoStore.userName}</p>
                 <Footer selectedTab="About"/>
             </div>
         );

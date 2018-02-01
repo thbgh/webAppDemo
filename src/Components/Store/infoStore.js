@@ -5,7 +5,7 @@
  * @Project: Mart
  * @Filename: common.js
  * @Last modified by:   THB
- * @Last modified time: 2018-02-01 16:10:20 PM Thursday
+ * @Last modified time: 2018-02-01 17:26:50 PM Thursday
  */
 
 let InfoStore = {
@@ -15,8 +15,9 @@ let InfoStore = {
         let path = _this.props.location.pathname,
             prev_Name = InfoStore.userName,
             now_Name = name == prev_Name ? "初始名字": name
+        // 修改属性值
         InfoStore.userName = now_Name
-        // re-rendering
+        // re-rendering重新渲染Dom
         // _this.setState({})
         // _this.forceUpdate()
         _this.setState({userName:now_Name})
