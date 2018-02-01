@@ -7,8 +7,7 @@
 3. 组件库：[antd-mobile](https://ant.design/docs/react/introduce-cn
 4. 路由： [react-routr V4](https://mobile.ant.design/docs/react/introduce-cn)
 
-
-###展示图片
+### 展示图片
 ![image](https://github.com/thbgh/RR4demo/blob/master/public/img/home.png)
 ![image](https://github.com/thbgh/RR4demo/blob/master/public/img/personal.png)
 
