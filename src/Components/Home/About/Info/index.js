@@ -5,7 +5,7 @@
  * @Project: Mart
  * @Filename: index.js
  * @Last modified by:   THB
- * @Last modified time: 2018-02-01 16:05:31 PM Thursday
+ * @Last modified time: 2018-02-03 11:44:20 AM Saturday
  */
 
 import React from 'react';
@@ -21,8 +21,7 @@ import {
     InputItem,
     Toast,
 } from 'antd-mobile';
-import InfoStore from '../../../Store/infoStore';
-
+import {InfoStore} from '../../../Store/infoStore';
 export default class Info extends React.Component {
 
     state= {

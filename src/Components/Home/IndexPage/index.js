@@ -5,14 +5,14 @@
  * @Project: Mart
  * @Filename: index.js
  * @Last modified by:   THB
- * @Last modified time: 2018-02-01 14:15:12 PM Thursday
+ * @Last modified time: 2018-02-03 11:33:31 AM Saturday
  */
 
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Button, Icon, Card, Radio, WingBlank, WhiteSpace,NavBar, List,InputItem, Toast } from 'antd-mobile';
 import Footer from '../Footer';
-import InfoStore from '../../Store/infoStore';
+import {InfoStore} from '../../Store/infoStore';
 
 export default class IndexPage extends Component {
     constructor(props) {

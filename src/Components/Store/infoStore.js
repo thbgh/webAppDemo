@@ -5,16 +5,16 @@
  * @Project: Mart
  * @Filename: common.js
  * @Last modified by:   THB
- * @Last modified time: 2018-02-01 17:26:50 PM Thursday
+ * @Last modified time: 2018-02-03 11:45:29 AM Saturday
  */
 
-let InfoStore = {
+export let InfoStore = {
     userName:'初始名字',
     age:'18',
-    changeUserName: (name,_this) => {
+    changeUserName: (userName,_this) => {
         let path = _this.props.location.pathname,
             prev_Name = InfoStore.userName,
-            now_Name = name == prev_Name ? "初始名字": name
+            now_Name = userName == prev_Name ? "初始名字": userName
         // 修改属性值
         InfoStore.userName = now_Name
         // re-rendering重新渲染Dom
@@ -30,4 +30,4 @@ let InfoStore = {
     }
 }
 
-export default InfoStore
+// export {InfoStore}

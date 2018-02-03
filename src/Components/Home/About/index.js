@@ -5,13 +5,13 @@
  * @Project: Mart
  * @Filename: index.js
  * @Last modified by:   THB
- * @Last modified time: 2018-02-01 17:28:41 PM Thursday
+ * @Last modified time: 2018-02-03 11:33:42 AM Saturday
  */
 
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Footer from '../Footer';
-import InfoStore from '../../Store/infoStore';
+import {InfoStore} from '../../Store/infoStore';
 
 export default class About extends Component {
     constructor(props) {

@@ -1,74 +1,96 @@
-/**
- * @Author: THB
- * @Date:   2018-01-03 13:58:13 PM Wednesday
- * @Email:  thbwork2016@gmail.com
- * @Project: Mart
- * @Filename: index.js
- * @Last modified by:   THB
- * @Last modified time: 2018-01-30 17:04:32 PM Tuesday
- */
-
-// import React, {Component} from 'react';
-// import {observer} from 'mobx-react';
-//
-// console.log(observer)
-//
-// export default class Detail extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             // selectedTab: this.props.selectedTab,
-//         };
-//     }
-//     componentDidMount() {
-//         console.dir(this.props)
-//     }
-//
-//     render() {
-//         return (
-//             <div>
-//                 <h2>Detail</h2>
-//             </div>
-//         );
-//     }
-// }
-
-
-
 import React, {Component} from 'react';
-import {observer} from 'mobx-react';
+import { BrowserRouter as Router, Route, Link, withRouter } from 'react-router-dom';
+import { ActionSheet, WingBlank, WhiteSpace, Button, Toast } from 'antd-mobile';
 
-const App  = observer(class App extends React.Component {
-    render() {
-        return  (
-            <div>
-                {this.props.person.name}<br />
-                <button onClick={() => {this.props.person.name = "Mike"}}>change</button>
-            </div>
-        )
-    }
-})
 
-const person = observer({ name: "John" })
+// const { ActionSheet, WingBlank, WhiteSpace, Button, Toast } = window["antd-mobile"];
 
-// person.name = "Mike" // will cause the Observer region to re-render
+// fix touch to scroll background page on iOS
+// https://github.com/ant-design/ant-design-mobile/issues/307
+// https://github.com/ant-design/ant-design-mobile/issues/163
+const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
+let wrapProps;
+if (isIPhone) {
+  wrapProps = {
+    onTouchStart: e => e.preventDefault(),
+  };
+}
 
-export default class Detail extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         // selectedTab: this.props.selectedTab,
-    //     };
-    // }
-    // componentDidMount() {
-    //     console.dir(this.props)
-    // }
+export default class Test extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      clicked: 'none',
+      clicked1: 'none',
+      clicked2: 'none',
+    };
+  }
 
-    render() {
-        return (
-            <div>
-                <App person={person} />
-            </div>
-        );
-    }
+  dataList = [
+    { url: 'OpHiXAcYzmPQHcdlLFrc', title: '发送给朋友' },
+    { url: 'wvEzCMiDZjthhAOcwTOu', title: '新浪微博' },
+    { url: 'cTTayShKtEIdQVEMuiWt', title: '生活圈' },
+    { url: 'umnHwvEgSyQtXlZjNJTt', title: '微信好友' },
+    { url: 'SxpunpETIwdxNjcJamwB', title: 'QQ' },
+  ].map(obj => ({
+    icon: <img src={`https://gw.alipayobjects.com/zos/rmsportal/${obj.url}.png`} alt={obj.title} style={{ width: 36 }} />,
+    title: obj.title,
+  }));
+
+  showActionSheet = () => {
+    const BUTTONS = ['Operation1', 'Operation2', 'Operation2', 'Delete', 'Cancel'];
+    ActionSheet.showActionSheetWithOptions({
+      options: BUTTONS,
+      cancelButtonIndex: BUTTONS.length - 1,
+      destructiveButtonIndex: BUTTONS.length - 2,
+      title: 'title',
+      message: 'I am description, description, description',
+      maskClosable: true,
+      'data-seed': 'logId',
+      wrapProps,
+    },
+    (buttonIndex) => {
+      console.log("点击了",BUTTONS[buttonIndex])
+      this.setState({ clicked: BUTTONS[buttonIndex] });
+    });
+  }
+
+  showShareActionSheet = () => {
+    ActionSheet.showShareActionSheetWithOptions({
+      options: this.dataList,
+      // title: 'title',
+      message: 'I am description, description, description',
+    },
+    (buttonIndex) => {
+      this.setState({ clicked1: buttonIndex > -1 ? this.dataList[buttonIndex].title : 'cancel' });
+      // also support Promise
+      return new Promise((resolve) => {
+        Toast.info('closed after 1000ms');
+        setTimeout(resolve, 1000);
+      });
+    });
+  }
+
+  showShareActionSheetMulpitleLine = () => {
+    const data = [[...this.dataList, this.dataList[2]], [this.dataList[3], this.dataList[4]]];
+    ActionSheet.showShareActionSheetWithOptions({
+      options: data,
+      message: 'I am description, description, description',
+    },
+    (buttonIndex, rowIndex) => {
+      this.setState({ clicked2: buttonIndex > -1 ? data[rowIndex][buttonIndex].title : 'cancel' });
+    });
+  }
+
+  render() {
+    return (<WingBlank>
+      <h2>Detail</h2>
+      <WhiteSpace />
+      <Button onClick={this.showActionSheet}>showActionSheet</Button>
+      <WhiteSpace />
+      <Button onClick={this.showShareActionSheet}>showShareActionSheet</Button>
+      <WhiteSpace />
+      <Button onClick={this.showShareActionSheetMulpitleLine}>showShareActionSheetMulpitleLine</Button>
+    </WingBlank>);
+  }
 }
