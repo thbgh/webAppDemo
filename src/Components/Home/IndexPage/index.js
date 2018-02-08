@@ -5,7 +5,7 @@
  * @Project: Mart
  * @Filename: index.js
  * @Last modified by:   THB
- * @Last modified time: 2018-02-03 11:33:31 AM Saturday
+ * @Last modified time: 2018-02-06 10:24:33 AM Tuesday
  */
 
 import React, {Component} from 'react';
@@ -25,7 +25,6 @@ export default class IndexPage extends Component {
 
     render() {
         return (
-
             <div>
                 <h2>IndexPage</h2>
                 <p>InfoStore.userName:{InfoStore.userName}</p>
